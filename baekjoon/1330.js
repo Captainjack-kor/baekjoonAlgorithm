@@ -1,21 +1,18 @@
 // const fs = require('fs');
-// let input = fs.readFileSync('/dev/stdin').toString().split('\n');
-// console.log(input);
-// solution(input[0], input[1]);
+// let input = fs.readFileSync('/dev/stdin').toString().split(' ');
+// //console.log(input);
 
-// function solution(A, B) {
-//   if(A > B) {
-//     console.log(">");
-//   } else if(A < B) {
-//     console.log("<");
-//   } else {
-//     console.log("==");
-//   }
+// const [A,B] = input;
+// //solution(input[0], input[1]);
+
+// if(A > B) {
+//   console.log(">");
+// } else if(A < B) {
+//   console.log("<");
+// } else {
+//   console.log("==");
 // }
-// console.log(input);
 
-// let result = input.split(" ");
-// console.log(result);
 
 const readline = require('readline');
 const rl = readline.createInterface({
@@ -25,11 +22,17 @@ const rl = readline.createInterface({
 
 rl.on('line', function (line) {
   //console.log(line);
-  let data = line.split(' ').map((el) => el);
+  //let data = line.split(' ').map((el) => el);
   //console.log(data);
-  if(data[0] > data[1]) {
+  let input = line.split(' ');
+
+  
+  let A = Number(input[0]);
+  let B = Number(input[1]);
+
+  if(A > B) {
     console.log(">");
-  } else if(data[0] < data[1]) {
+  } else if(A < B) {
     console.log("<");
   } else {
     console.log("==");
