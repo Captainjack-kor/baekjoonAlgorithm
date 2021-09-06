@@ -15,7 +15,6 @@ rl.on('line', function (line) {
 
   rl.close();
 }).on('close', function () {
-  
   console.log(answer);
   process.exit();
 });
