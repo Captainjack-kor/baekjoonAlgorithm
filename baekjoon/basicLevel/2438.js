@@ -13,10 +13,13 @@ rl.on('line', function (line) {
     rl.close();
   }
 }).on('close', function () {
-  
+  let answer = "";
   for(let i = 0; i < input[0]; i++) {
-    console.log("*");
+    for(let j = 0; j <= i; j++) {
+      answer += "*";
+    }
+    console.log(answer);
+    answer = "";
   }
-
   process.exit();
 });
