@@ -4,12 +4,35 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
+let input = [];
+
 rl.on('line', function (line) {
-  console.log(line);
-  rl.close();
+  input.push(line);
+  if(input.length === 1) {
+    rl.close();
+  }
 }).on('close', function () {
+  let A = Number(input[0]);
   process.exit();
 });
+
+
+
+
+
+
+// const readline = require('readline');
+// const rl = readline.createInterface({
+//   input: process.stdin,
+//   output: process.stdout,
+// });
+
+// rl.on('line', function (line) {
+//   console.log(line);
+//   rl.close();
+// }).on('close', function () {
+//   process.exit();
+// });
 
 
 // const fs = require('fs');
@@ -19,3 +42,5 @@ rl.on('line', function (line) {
 
 // let result = input.split(" ");
 // console.log(result);
+
+
