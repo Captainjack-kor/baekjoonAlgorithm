@@ -1,3 +1,13 @@
+// const fs = require('fs');
+// const input = fs.readFileSync('/dev/stdin').toString().split('\n');
+
+// const [index, ...rest] = input;
+
+// for (let i = 0; i < index; i++) {
+//     let [a, b] = rest[i].toString().split(' ').map(Number);
+//     console.log(a+b);
+// }
+
 const readline = require('readline');
 const rl = readline.createInterface({
   input: process.stdin,
