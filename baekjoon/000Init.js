@@ -8,15 +8,10 @@ let input = [];
 
 rl.on('line', function (line) {
   input.push(line);
-  if(input.length === 1) {
-    rl.close();
-  }
 }).on('close', function () {
-  let N = Number(input[0]);
+  console.log(input);
   process.exit();
 });
-
-
 
 
 
