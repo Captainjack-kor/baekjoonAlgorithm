@@ -8,6 +8,7 @@ let input = [];
 
 rl.on('line', function (line) {
   input.push(line);
+  rl.close();
 }).on('close', function () {
   console.log(input);
   process.exit();
