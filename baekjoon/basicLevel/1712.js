@@ -16,14 +16,21 @@ rl.on('line', function (line) {
   for(let i = 0; i < input.length; i++) {
     result.push(Number(input[i]));
   }
-  console.log(result);
-  let count = 0;
+  //console.log(result);
+  let count = 1;
+
+  let A = Number(result[0]);
+  let B = Number(result[1]);
+  let C = Number(result[2]);
   
-  while(result[0] + result[1] > result[2]) {
-    result[0] = result[0] + result[1];
-    count++;
-    console.log(result);
-  }
-  console.log(count);
+  let N = A / (C - B);
+  
+  let answer = Math.floor(N) + 1;
+  
+  if(B >= C) {
+    answer = -1;
+  } 
+  
+  console.log(answer);
   process.exit();
 });
