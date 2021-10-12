@@ -2,24 +2,28 @@ function solution(board, moves) {
   var answer = 0;
   var stack = [];
   
-  moves.forEach(index=>{
-    var position = index-1;
-    for(var i=0; i<board.length; i++){
+  moves.forEach(index => {
+    var position = index - 1; //matching
+    for(var i = 0; i < board.length; i++){
       var temp = board[i][position];
+      //same > var temp = board[i][position - 1];
     
-      if( temp !=0 ){
-        stack.push( temp );
+      if(temp !== 0){
+        stack.push(temp);
         board[i][position] = 0;
         break;
       }
     }
     
-    var last = stack.length;
+    var last = stack.length;  // 5
+    //example) basket: 2,1,1,2,1
+    //
+    console.log(stack);
     if( last > 1 ){
-      if( stack[last-1] == stack[last-2] ){
+      if( stack[last - 1] === stack[last - 2] ){
           answer += 2;
           stack.pop();
-          stack.pop();
+          stack.pop(); 
       }
     }
   })
