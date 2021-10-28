@@ -19,13 +19,23 @@ rl.on('line', function (line) {
     5 = 24(61)
   */
 
-  let room = 1;
   let value = 1;
-  while(input >= 0) {
-    value = value * 
-    input - value;
+  let i = 1;
+  let sum = 1;
+  if(Number(input) === 0) {
+    console.log(0);
+  } else if(input === "1"){
+    console.log(1);
+  } else if(Number(input) >= 2 && Number(input) <= 7) {
+    console.log(2);
+  } else {
+    while(input - sum > 0) {
+      value = i * 6;
+      sum += value;
+      i++;
+    }
+    console.log(i);
   }
 
-  console.log(room)
   process.exit();
 });
