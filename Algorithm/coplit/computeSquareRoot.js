@@ -35,5 +35,43 @@ function computeSquareRoot(num) {
 }
 
 const answer = computeSquareRoot(22);
-// dd
+
 console.log(answer);
+
+
+//second way
+
+/* 
+function computeSquareRoot(num) {
+  // TODO: 여기에 코드를 작성합니다.
+  //문제 : 수를 입력받아 제곱근 값을 소수점 두 자리까지 리턴해야 합니다.
+  // 9 = 3  루트1< >루트4 
+  //2< num 2.50 <3
+  
+  const decimalPlaces = 2;
+  const divider = 10 ** decimalPlaces; // divider = 100 
+  ///
+  num *= 100 ** decimalPlaces; // num = 90,000  [num 9]
+  num = num / 2; // num =45,000
+  let i = 1;    //초깃값
+  while (num - i > 0) {    //****  4.5-1>0 (5번돌고) -> 4.5-1 3.5 2.5 1.5 5/100
+    num -= i; // num= num-i; 
+    i++;
+  }
+  return i / divider; 
+  
+
+  //! Enter this part
+  let approx = 1;
+
+  while (approx ** 2 !== num) {
+    if ( Number((approx*approx).toFixed(2)) === num) {
+      break;
+    }
+    approx = (approx + (num / approx)) / 2;
+  } 
+
+  return Number(approx.toFixed(2));
+}
+
+*/
