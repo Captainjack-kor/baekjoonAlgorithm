@@ -84,7 +84,8 @@ function orderOfPresentation(N, K) {
      * 그렇다면, IsUsed 배열은 이렇게 됩니다. [false(더미), false, true, false]
      * candidates 배열은 이렇게 됩니다. => [false]
      * validCnt는 이렇게 됩니다. => 1
-     * formerCnt는 이렇게 됩니다. => 1 * factorial(3 - 0 - 1) // i는 0부터 시작하기 때문에 N에서 남아 있는 수를 구할 때 - 1이 추가로 필요합니다.
+     * formerCnt는 이렇게 됩니다. => 1 * factorial(3 - 0 - 1) 
+       // i는 0부터 시작하기 때문에 N에서 남아 있는 수를 구할 때 - 1이 추가로 필요합니다.
      * order는 2를 추가합니다.
      * 
      * 두 번째를 순회했을 땐, num이 3이 됩니다.
