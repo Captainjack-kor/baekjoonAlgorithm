@@ -16,17 +16,19 @@ rl.on('line', function (line) {
   let result = [];
   input.forEach((element, index) => {
       if(index > 0) {
-        sum += Number(element.split(",")[0]) + Number(element.split(",")[1]); 
-        result.push(sum);
+        // sum += Number(element.split(",")[0]) + Number(element.split(",")[1]); 
+        console.log(Number(element.split(",")[0]) + Number(element.split(",")[1]));
+
+        // result.push(sum);
         sum = 0;
       }
       // console.log("test: " + Number(element.split(",")[0]));
 
   });
   // console.log("sum: " + sum);
-  result.forEach((el) => {
-    console.log(el);
-  })
+  // result.forEach((el) => {
+    // console.log(el);
+  // })
   // console.log(result);
 
   process.exit();
