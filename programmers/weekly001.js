@@ -10,25 +10,21 @@ function solution(sizes) {
   let check = 0;
   
   sizes.forEach((el) => {
-      let originX = 0;
-      let originY = 0;
+      let originX = maxX;;
+      let originY = maxY;
       let count = 0;
 
       if(maxX < el[0] ) {
-          originX = maxX;
           maxX = el[0];
           count++;
       } 
       
       if(maxY < el[1]) {
-          originY = maxY;
           maxY = el[1];
           count++;
       }
       
       result = maxX * maxY;
-      console.log("maxX, maxY: " + maxX, maxY);
-      console.log("result1: " + result)
 
       if(count >= 1) {
           if(originX < el[1]) {
@@ -40,9 +36,7 @@ function solution(sizes) {
           }
           
           
-          console.log("originX, originY: " + originX, originY);
           result2 = originX * originY;
-          console.log(result2);
           
       }
 
@@ -59,11 +53,7 @@ function solution(sizes) {
   } else {
     return result;
   }
-} 
-  
-
-  
-  
+}
 
 // console.log(solution([[60, 50], [30, 70], [60, 30], [80, 40]])); //기댓값: 4000
 // console.log(solution([[10, 7], [12, 3], [8, 15], [14, 7], [5, 15]])); // 120
