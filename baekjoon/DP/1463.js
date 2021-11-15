@@ -10,28 +10,22 @@ rl.on('line', function (line) {
   input = Number(line);
   rl.close();
 }).on('close', function () {
-  //X가 3으로 나누어 떨어지면, 3으로 나눈다.
-  //X가 2로 나누어 떨어지면, 2로 나눈다.
-  //1을 뺀다.
-  let count = 0;
-  if(input === 1) {
-    console.log(0);
-    process.exit();
+  num = input;
+  const DP = new Array(num + 1).fill(0);
+
+  for (let i = 2; i <= num; i++) {
+    DP[i] = DP[i - 1] + 1;
+
+    if (i % 2 === 0) {
+      DP[i] = Math.min(DP[i], DP[i / 2] + 1);
+    }
+
+    if (i % 3 === 0) {
+      DP[i] = Math.min(DP[i], DP[i / 3] + 1);	
+    }
   }
 
-  while(input > 1) {
-    if(input % 3 === 0) {
-      input = input /  3;
-      count++;
-    } else if(input % 2 === 0) {
-      input = input / 2;
-      count++;
-    } else {
-      input -= 1;
-      count++;
-    }
-    console.log(input);
-  }
-  console.log(count);
+  console.log(DP[num]);
+
   process.exit();
 });
