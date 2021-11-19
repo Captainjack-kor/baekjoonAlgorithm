@@ -18,7 +18,7 @@ rl.on('line', function (line) {
 
     if (i % 2 === 0) {
       DP[i] = Math.min(DP[i], DP[i / 2] + 1);
-      // console.log(DP);
+      console.log(DP);
     }
 
     if (i % 3 === 0) {
