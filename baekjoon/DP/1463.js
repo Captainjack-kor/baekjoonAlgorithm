@@ -12,8 +12,8 @@ rl.on('line', function (line) {
 }).on('close', function () {
   num = input;
   const DP = new Array(num + 1).fill(0);
-
-  for (let i = 2; i <= num; i++) {
+  console.log(DP);
+  for (let i = 2; i <= num; i++) { //2부터 입력 값까지
     DP[i] = DP[i - 1] + 1;
 
     if (i % 2 === 0) {
