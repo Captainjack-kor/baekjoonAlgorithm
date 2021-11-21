@@ -29,14 +29,10 @@ rl.on('line', function (line) {
     if (i % 3 === 0) {
       DP[i] = Math.min(DP[i], DP[i / 3] + 1);	
     }
-
-
-
     console.log("-----------");
     console.log("i: " + i);
     console.log(DP);
     console.log("-----------");
-
   }
 
   console.log(DP[num]);
