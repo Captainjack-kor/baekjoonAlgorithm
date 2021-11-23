@@ -48,7 +48,7 @@ console.log(output);
 */
 
 // Advanced가 포함된 레퍼런스 코드입니다.
-const rockPaperScissors = function (rounds) {
+function rockPaperScissors(rounds) {
 
   // rounds 매개변수를 임의로 넣습니다.
   // rounds 변수가 있을 경우 그대로 사용하고, 없다면 3(기본)을 사용합니다.
@@ -60,7 +60,6 @@ const rockPaperScissors = function (rounds) {
 
   // 재귀를 사용할 함수 선언
   // rounds를 넣을 변수 roundsToGo, 일회용 배열인 playedSoFar 변수를 선언합니다.
-
   // 재귀를 사용하는 이유는, 배열의 모든 요소의 경우의 수를 훑기 위한 적절한 방법이기 때문입니다.
   // 간단히 말하자면, 이 함수는 rounds 숫자를 기준으로, 일회용 배열에 rps 요소를 rounds 숫자만큼 넣게 됩니다.
   // 이 로직을 잘 이해할 수 있을 때까지 하단의 함수 로직을 연구해야 합니다.
@@ -78,7 +77,6 @@ const rockPaperScissors = function (rounds) {
       let currentPlay = rps[i];
       // permutate(본인)에 기존 rounds에서 하나 뺀 숫자와, 일회용 배열 playedSoFar에 currentPlay를 삽입하여 재귀를 실행합니다.
       // rounds에서 하나를 빼는 이유는, 일회용 배열의 크기를 rounds만큼 맞춰주기 위함입니다. [rock, rock, rock]
-
       // Q. playedSoFar.push(currentPlay)로 할 수 있을 텐데, 왜 concat을 사용할까요?
       permutate(roundsToGo - 1, playedSoFar.concat(currentPlay));
       /**
@@ -98,4 +96,4 @@ const rockPaperScissors = function (rounds) {
 
   // outcomes를 반환합니다.
   return outcomes;
-};
+}
