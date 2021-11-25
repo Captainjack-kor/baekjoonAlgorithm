@@ -1,7 +1,12 @@
  function solution(n, words) {
     let answer = 0;
     words.reduce((prev, now, idx) => {
-        // console.log(prev);
+        console.log(prev);
+        // prev: 이 부분은 증감식이라 처음에 작동안한다. return 된 now[now.length - 1]을 콜백을 받아 작동.
+        // 그래서 바로 tail로 짤린 k가 온다.
+        //아니넹? 작동은 하는데 빈 값이 출력 된다.
+        
+        if(prev === "" ? console.log("당첨") : "");
         answer = answer || ((words.slice(0, idx).indexOf(now) !== -1 || prev !== now[0]) ? idx : answer);
         // console.log("now: " + now);
         return now[now.length - 1]; //tail
