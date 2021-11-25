@@ -38,7 +38,7 @@
 
 function movingStuff(stuff, limit) {
   let twoStuff = 0;
-  // 짐을 무게순으로 오름차순 정렬
+  //! 짐을 무게순으로 오름차순 정렬
   let sortedStuff = stuff.sort((a, b) => a - b);
   // 가장 가벼운 짐의 인덱스
   let leftIdx = 0;
