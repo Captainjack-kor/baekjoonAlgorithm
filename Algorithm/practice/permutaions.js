@@ -8,7 +8,7 @@ const getPermutations = function (arr, selectNumber) {
     console.log("rest: "+ rest);
     // 해당하는 fixed를 제외한 나머지 배열 
     const permutations = getPermutations(rest, selectNumber - 1); 
-    console.log("permutation: " + permutations);
+    // console.log("permutation: " + permutations);
     // 나머지에 대해서 순열을 구한다.
     const attached = permutations.map((el) => [fixed, ...el]); 
     //  돌아온 순열에 떼 놓은(fixed) 값 붙이기
@@ -20,5 +20,5 @@ const getPermutations = function (arr, selectNumber) {
 }
 
 
-console.log(getPermutations([1, 2, 3, 4], 3));
-// console.log(getPermutations([1, 2, 3], 3));
+// console.log(getPermutations([1, 2, 3, 4], 3));
+console.log(getPermutations([1, 2, 3], 3));
