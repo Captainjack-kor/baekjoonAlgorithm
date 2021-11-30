@@ -8,14 +8,6 @@
         //! if(prev === "" ? console.log("당첨") : ""); 증명 => 첫 값은 그냥 빈 문자열
         
         answer = answer || ((words.slice(0, idx).indexOf(now) !== -1 || prev !== now[0]) ? idx : answer);
-        // answer = 0 || ??;
-        // answer = true || 1;
-        // answer = false || 1;
-        // answer = 0 || 1;
-        // answer = 1 || 2;
-        // answer = -1 || "asdf"
-
-
 
         console.log("idx: " + idx);
         console.log("answer: " + answer);
