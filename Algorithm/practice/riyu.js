@@ -29,6 +29,7 @@
     return answer ? [answer % n + 1, Math.floor(answer / n) + 1] : [0, 0];
 }
 
-solution(3,["tank", "kick", "know", "wheel", "land", "dream", "mother", "robot", "tank"]);
+// solution(3,["tank", "kick", "know", "wheel", "land", "dream", "mother", "robot", "tank"]);
+solution(3,["tank", "kick", "know", "tank", "wheel", "land", "dream", "mother", "robot"]);
 // solution(2,["hello", "one", "even", "never", "now", "world", "draw"]);
 // solution(5,["hello", "observe", "effect", "take", "either", "recognize", "encourage", "ensure", "establish", "hang", "gather", "refer", "reference", "estimate", "executive"]);
