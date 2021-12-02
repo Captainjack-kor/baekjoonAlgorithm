@@ -1,9 +1,8 @@
 function solution(numbers, target) {
     let answer = 0;
+  
     
-    dfs(0, 0);
-    
-    function dfs(index, sum) {
+    function dfs(index = 0, sum = 0) {
         if(index === numbers.length) {
             if (sum === target) {
                 answer++;
@@ -14,8 +13,12 @@ function solution(numbers, target) {
         dfs(index + 1, sum + numbers[index]);
         dfs(index + 1, sum - numbers[index]);
     }
+
+      
+    dfs(0, 0);
     
     return answer;
 }
 
 console.log(solution([1,1,1,1,1], 3)); // 5
+console.log(solution([1,1,1,1,1], 5)); // 1
