@@ -1,18 +1,19 @@
 function solution(k, dungeons) {
     var answer = [];
-    let count = 0;
-    let originK = k;
     let max = 0;
     const getPermutations= function (arr, selectNumber) {
       const results = [];
       if (selectNumber === 1) {
-          return arr.map((value) => [value]); 
+        // console.log(arr.map((value) => [value]));
+        return arr.map((value) => [value]); 
+        // return arr[0]; 
+
       }
-
       arr.forEach((fixed, index, origin) => {
-
+        // console.log("origin: " + origin);
         // console.log(origin[index][0]);
-        const rest = [...origin.slice(0, index), ...origin.slice(index+1)];
+        const rest = [...origin.slice(0, index), ...origin.slice(index + 1)];
+        // console.log("rest: " + rest);
         //! [same code] 근데 시간 복잡도 증가하는가? 확인 필요
         // const rest = origin.filter((el) => {
         //     if(el === origin[index]) {
@@ -21,21 +22,16 @@ function solution(k, dungeons) {
         //         return true;
         //     }
         // })
-
         const permutations = getPermutations(rest, selectNumber - 1); 
-        
-
-        const attached = permutations.map((permutation) => [fixed, ...permutation]); 
-
-        // console.log(attached.length);
-
-        // if(k > attached[0]) { 
-        //   count++;
-        //   k -= attached[1];
+        if(index === 0) {
+          console.log(...permutations);
+        }
+        // const attached = permutations.map((permutation) => [fixed, ...permutation]); 
+        // if(index === 0) {
+        //   console.log("attached: " + attached);
         // }
-        results.push(...attached); 
-        console.log(...attached);
-        // console.log(...attached);
+
+        // results.push(...attached); 
 
         // if(count > max) {
         //   max = count;
@@ -48,9 +44,9 @@ function solution(k, dungeons) {
     };
 
     let value = getPermutations(dungeons, dungeons.length);
-    console.log(count);
-    console.log("MAX: " + max);
-    console.log(value);
+    // console.log(count);
+    // console.log("MAX: " + max);
+    // console.log(value);
     return max;
 }
 
