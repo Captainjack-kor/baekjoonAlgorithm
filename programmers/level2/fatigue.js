@@ -23,30 +23,31 @@ function solution(k, dungeons) {
         //     }
         // })
         const permutations = getPermutations(rest, selectNumber - 1); 
-        if(index === 0) {
-          console.log(...permutations);
-        }
-        // const attached = permutations.map((permutation) => [fixed, ...permutation]); 
         // if(index === 0) {
-        //   console.log("attached: " + attached);
+          // console.log(...permutations);
+        // }
+        // console.log(fixed);
+        const attached = permutations.map((permutation) => [fixed, ...permutation]); 
+        // if(index === 0) {
+          // console.log(...attached);
         // }
 
-        // results.push(...attached); 
-
+        results.push(...attached); 
         // if(count > max) {
-        //   max = count;
-        // }
-        // k = originK;
-        // count = 0;
+          //   max = count;
+          // }
+          // k = originK;
+          // count = 0;
       });
-
+        
+      // console.log(results);
       return results;
     };
 
     let value = getPermutations(dungeons, dungeons.length);
     // console.log(count);
     // console.log("MAX: " + max);
-    // console.log(value);
+    console.log(value);
     return max;
 }
 
