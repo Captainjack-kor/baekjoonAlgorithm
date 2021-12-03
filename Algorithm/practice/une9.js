@@ -17,7 +17,7 @@ function solution(k, dungeons) {
       }
   }
 
-  dfs(k, 0)
+  dfs(k, 0);
   return answer;
 }
 

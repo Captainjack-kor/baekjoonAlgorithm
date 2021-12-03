@@ -1,15 +1,25 @@
 function solution(k, dungeons) {
     var answer = [];
     let max = 0;
+    let count = 0;
     const getPermutations= function (arr, selectNumber) {
       const results = [];
-      console.log("🚀 arr", arr);
+      // console.log("🚀 arr", arr);
       if (selectNumber === 1) {
-        // console.log(arr.map((value) => [value]));
-        return arr.map((value) => [value]); 
-        // return arr[0]; 
-
+        // console.log("🚀  arr",  arr);
+        // arr.map((el) => {
+        //   console.log(el);
+        //   if(k >= el[0]) {
+        //     k -= el[1];
+        //     count++;
+        //   } else {
+        //     answer.push(count);
+        //   }      
+        // })
+        // count = 0;
+        return arr.map((value) => [value]);  //! 리턴 전에 []로 묶어 줌. 
       }
+      
       arr.forEach((fixed, index, origin) => {
         // console.log("origin: " + origin);
         // console.log(origin[index][0]);
@@ -28,11 +38,7 @@ function solution(k, dungeons) {
           // console.log(...permutations);
         // }
         // console.log(fixed);
-        const attached = permutations.map((permutation) => [fixed, ...permutation]); 
-        // if(index === 0) {
-          // console.log(...attached);
-        // }
-        
+        const attached = permutations.map((permutation) => [fixed, ...permutation]);
         results.push(...attached); 
         // if(count > max) {
           //   max = count;
@@ -41,13 +47,23 @@ function solution(k, dungeons) {
           // count = 0;
       });
         
-      // console.log(results);
+      // console.log("🚀 results", results);
+      // for(let i = 0; i < results.length; i++) {
+      //   if(k >= results[i][0]) {
+      //     k -= results[i][1];
+      //     count++;
+      //   } else {
+      //     answer.push(count);
+      //   }
+      // }
+      
       return results;
     };
 
 
     let value = getPermutations(dungeons, dungeons.length);
     // console.log(count);
+    console.log("😎 answer", answer);
     // console.log("MAX: " + max);
     // console.log(value);
     // console.log(answer);
