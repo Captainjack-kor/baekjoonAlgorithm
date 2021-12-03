@@ -1,7 +1,7 @@
 function solution(k, dungeons) {
   var answer = [];
 
-//     // 순서만드는 재귀함수
+  //  순서만드는 재귀함수
 //     let test = [1,2,3,4,5];
 //     let result = [];
 
@@ -20,9 +20,8 @@ function solution(k, dungeons) {
 
 //     make([],test);
 
-
   let make = function(eg, target) {
-      if( target.length == 0 ){
+      if( target.length === 0 ){
           answer.push(dungeons.length);
       }
 
@@ -41,3 +40,5 @@ function solution(k, dungeons) {
 
   return Math.max.apply(null, answer);
 }
+
+console.log(solution(80, [[80,20],[50,40],[30,10]]));
