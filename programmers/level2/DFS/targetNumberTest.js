@@ -7,7 +7,7 @@ function solution(numbers, target) {
         if( list.length == 0 ){
           if( acc == target ){
               answer++;
-          }
+          } 
 
           // result.push(acc);
           return;

@@ -3,6 +3,7 @@ function solution(k, dungeons) {
     let max = 0;
     const getPermutations= function (arr, selectNumber) {
       const results = [];
+      console.log("🚀 arr", arr);
       if (selectNumber === 1) {
         // console.log(arr.map((value) => [value]));
         return arr.map((value) => [value]); 
@@ -31,7 +32,7 @@ function solution(k, dungeons) {
         // if(index === 0) {
           // console.log(...attached);
         // }
-
+        
         results.push(...attached); 
         // if(count > max) {
           //   max = count;
@@ -44,10 +45,12 @@ function solution(k, dungeons) {
       return results;
     };
 
+
     let value = getPermutations(dungeons, dungeons.length);
     // console.log(count);
     // console.log("MAX: " + max);
-    console.log(value);
+    // console.log(value);
+    // console.log(answer);
     return max;
 }
 
