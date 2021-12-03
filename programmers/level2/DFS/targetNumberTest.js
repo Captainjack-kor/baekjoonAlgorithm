@@ -12,7 +12,7 @@ function solution(numbers, target) {
           // result.push(acc);
           return;
         }
-        let now = list.pop()
+        let now = list.pop();
         //얕은(shallow) 깊은(deep) 복사
         //얕은 복사
         // run(list, acc+now);
