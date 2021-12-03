@@ -11,7 +11,7 @@ function solution(k, dungeons) {
           if (k >= dungeons[j][0] && !visited[j]){
               visited[j] = 1
               dfs(k - dungeons[j][1], count + 1)
-              visited[j] = 0
+              visited[j] = 0 
           }
           console.log(visited);
       }
