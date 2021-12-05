@@ -1,34 +1,22 @@
-function solution(k, dungeons) {
-  const { length } = dungeons;
-  // const length = dungeons.length;
-  // console.log(length);
-  let isVisit = new Array(length).fill(false);
-  // console.log(isVisit);
-  let result = [];
-  const aux = (visit, arr = []) => {
-    // console.log(visit);
-      if(arr.length === length) {
-        // for(let i = 0; i < arr.length; i++) {
-        //   if( k >= arr[])
-        // }
-        return result.push(arr);
-      }
+function solution(k, d) {
+  const N = d.length
+  const visited = new Array(N).fill(0)
+  let ans = 0
 
-      for(let i = 0; i < length; i++){
-          if(!visit[i] && k >= arr[i][0]){
-              visit[i] = true;
-              // console.log("🚀 visit", visit);
-              // console.log(dungeons[i]);
-              // aux(visit, arr.concat(i));
-              aux(k - arr[i][0], )
-              // aux(visit, arr.push(dungeons[i]));
-              //초깃 값이 [false, false, false] 다 넘어감.
-              visit[i] = false;
+  function dfs(k, cnt){
+      ans = Math.max(cnt, ans)
+      for (let j = 0; j < N; j++){
+          if (k >= d[j][0] && !visited[j]){
+              visited[j] = 1;
+
+              dfs(k - d[j][1], cnt + 1);
+
+              visited[j] = 0;
           }
       }
   }
-  aux(isVisit)
-  console.log(result)
+  dfs(k, 0)
+  return ans;
 }
 
 console.log(solution(80, [[80,20],[50,40],[30,10]]));
