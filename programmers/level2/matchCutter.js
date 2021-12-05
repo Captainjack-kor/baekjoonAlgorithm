@@ -1,21 +1,17 @@
-function solution(s) {
-    var answer = -1;
-    let checkArr = [];
-    let sArr = s.split('');
-    console.log(sArr);
-    for(let i = 0; i < s.length; i++) {
-      if(s[i] === s[i + 1]) {
-        // test = s.slice(s.indexOf(s[i]), s.indexOf(s[i + 1]));
+function solution(s){
+  if(s % 2 === 1) {
+      return 0;
+  }
+  const sArr = s.split("");
+
+    for(let i = 0 ; i < sArr.length - 1; i++){
+      if(sArr[i] === sArr[i + 1]){
+          sArr.splice(i, 2);
+            i = -1;
       }
-      // if(checkArr.indexOf(s[i]) === -1) {
-      //   checkArr.push(s[i]);
-      // } else {
-      //   i++;
-      // }
+  }
 
-    }
-    // console.log(test);
+return sArr.length === 0 ? 1 : 0;
 }
-
-
-console.log(solution("babaacd"));
+console.log(solution("baabaa")); // 1
+console.log(solution("cdcd")); // 0
