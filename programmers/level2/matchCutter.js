@@ -4,10 +4,10 @@ function solution(s){
   }
   const sArr = s.split("");
 
-    for(let i = 0 ; i < sArr.length - 1; i++){
+    for(let i = 0; i < sArr.length - 1; i++){
       if(sArr[i] === sArr[i + 1]){
           sArr.splice(i, 2);
-            i = -1;
+          i = -1;
       }
   }
 
