@@ -19,8 +19,8 @@ function solution(k, dungeons) {
               visit[i] = true;
               // console.log("🚀 visit", visit);
               // console.log(dungeons[i]);
-              aux(visit, arr.concat(i));
-              // aux(k - arr[i][0], )
+              // aux(visit, arr.concat(i));
+              aux(k - arr[i][0], )
               // aux(visit, arr.push(dungeons[i]));
               //초깃 값이 [false, false, false] 다 넘어감.
               visit[i] = false;
