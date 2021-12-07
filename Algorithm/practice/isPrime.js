@@ -3,11 +3,11 @@ function isPrime(num) {
     return false;
   }
 
-  if(num === 2) {
+  if(num === 2 || num === 3) {
     return true;
   }
 
-  for(let i = 2; i < Math.sqrt(num); i++) {
+  for(let i = 2; i <= Math.sqrt(num); i++) {
     if(num % i === 0) {
       return false;
     }
@@ -20,4 +20,6 @@ console.log(isPrime(7)); //기댓값: true
 console.log(isPrime(8)); // false
 console.log(isPrime(10));  // false
 console.log(isPrime(5)); // false
-console.log(isPrime(2)); // false
+console.log(isPrime(2)); // true
+console.log(isPrime(3)); // true
+
