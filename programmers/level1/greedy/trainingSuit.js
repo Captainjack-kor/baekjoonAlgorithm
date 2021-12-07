@@ -16,19 +16,41 @@ function solution(n, lost, reserve) {
   console.log(reserve);
   lost.sort((a, b) => a - b);
   reserve.sort((a, b) => a - b);
-  
+
 
 
   let leftIdx = 0;
-  let rightIdx = n;
-
-  while(leftIdx < rightIdx) {
-    // 0부터 출발 
-    leftIdx++;
-    // 끝에서 5부터 감소
-    rightIdx--;
+  let rightIdx = reserve.length - 1; 
+  let count = 0;
+  //* let rightIdx = n; 
+  for(let i = 0; i < reserve.length; i++) {
+    if(lost.indexOf(reserve[i]) !== -1) {
+      lost.splice(lost.indexOf(reserve[i]), 1);
+    }
+    if(lost.indexOf(reserve[i] + 1) !== -1) {
+      lost.splice(lost.indexOf(reserve[i] + 1), 1);
+    }
   }
-  return answer;
+  console.log("🚀 reserve", reserve);
+  console.log("🚀 lost", lost);
+  // while(leftIdx < rightIdx) {
+  //   // 0부터 출발 
+  //   if(lost.indexOf(reserve[leftIdx]) === -1 || lost.indexOf(reserve[leftIdx] + 1) === -1) {
+  //     leftIdx++;
+  //   } else {
+  //     leftIdx++;
+  //     count++;
+  //   }
+  //   // 끝에서 5부터 감소
+  //   if(lost.indexOf(reserve[rightIdx]) === -1 || lost.indexOf(reserve[rightIdx] - 1) === -1) { 
+  //     rightIdx--;
+  //   } else {
+  //     rightIdx--;
+  //     count++;
+  //   }
+  // }
+  // console.log("🚀 count", count);
+  return n - lost.length;
 }
 
 console.log(solution(5, [2, 4], [1, 3, 5])); // 5
