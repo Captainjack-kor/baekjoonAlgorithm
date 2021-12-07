@@ -1,7 +1,7 @@
-//permutaion with visit
+//permutation with visit
 
 function solution(k, dungeons) {
-    const {length} = dungeons
+    const { length } = dungeons
     let isVisit = new Array(length).fill(false);
     let result = []
     const aux = (visit, arr = []) => {
