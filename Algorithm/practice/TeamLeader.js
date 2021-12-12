@@ -21,6 +21,7 @@ function solution(k, dungeons) {
   let make = function(eg, target) {
       if( target.length === 0 ){
           answer.push(dungeons.length);
+          console.log("file: TeamLeader.js ~ line 24 ~ make ~ answer", answer);
           console.log(answer);
       }
 
