@@ -1,5 +1,6 @@
 function solution(s) {
   const stack = [];
+  
   // console.log(stack);
     for(let i = 0 ; i < s.length ; i++ ){
       if(!stack.length || stack[stack.length - 1] !== s[i]) {
