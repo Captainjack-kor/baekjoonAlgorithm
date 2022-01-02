@@ -14,17 +14,17 @@ function solution(word) {
       }
     }
   }
-  if(word[0] === "A") {
-      answer += 1;
-  } else if (word[0] === "E") {
-      answer +=  781;
-  } else if (word[0] === "I") {
-      answer += 1563;
-  } else if (word[0] === "O") {
-      answer += 2344;
-  } else if (word[0] === "U") {
-      answer += 3125;
-  }
+  // if(word[0] === "A") {
+  //     answer += 1;
+  // } else if (word[0] === "E") {
+  //     answer +=  781;
+  // } else if (word[0] === "I") {
+  //     answer += 1563;
+  // } else if (word[0] === "O") {
+  //     answer += 2344;
+  // } else if (word[0] === "U") {
+  //     answer += 3125;
+  // }
   
   return answer;
 }
