@@ -1,4 +1,3 @@
-//TODO: 1차 답안 런타임 에러
 function solution(number, k) {
   let stack = [];
   let answer = [];
@@ -18,6 +17,8 @@ function solution(number, k) {
       const attached = combinations.map((el) => [fixed, ...el]); 
       //  돌아온 조합에 떼 놓은(fixed) 값 붙이기
 
+      // const tempA = attached.join('');
+      // console.log("hi???" + tempA);
       results.push(...attached); 
       // 배열 spread syntax 로 모두다 push
     });
@@ -25,32 +26,15 @@ function solution(number, k) {
   }
 
   let value = getCombinations(number.split(''), number.length - k);
-  // let value = getPermutations(hi.split(''), 2);
 
-  // console.log(value);
-
-  // let temp = "";
-  // for(let i = 0; i < value.length; i++) {
-  //     // temp += value[i];
-  //     for(let j = 0; j < value[i].length; j++) {
-  //       temp += value[i][j];
-  //     }
-  //     answer.push(Number(temp));
-  //     temp = "";
-  //     // console.log(value[i]);
-  // }
-  // let max = 0;
-  // for(let i = 0; i < answer.length; i++) {
-  //   if(max < Number(answer[i])) {
-  //     max = Number(answer[i]);
-  //   }
-  // }
-
-  // console.log(String(Math.max(...answer)));
-
-  // console.log(max);
-  // return String(max);
-  return String(Math.max(...answer));
+  let max = 0;
+  for(let i = 0; i < value.length; i++) {
+    if(max < Number(value[i].join(''))) {
+      max = Number(value[i].join(''));
+    }
+  }
+  console.log(String(max));
+  return max;
 }
 
 console.log("===== 1차 답안 =====");
