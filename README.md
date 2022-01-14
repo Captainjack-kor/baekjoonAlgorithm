@@ -1,3 +1,3 @@
 # baekjoonAlgorith
 
-git commit test in google cloud server 12
+git commit test in google cloud server 
