@@ -11,14 +11,33 @@ function solution(s) {
 
   // 무조건 스택아님?
 
-  let count = 0;
-  let stack = [];
+  
+  while(true) {
+    let count = 0;
+    let stack = [];
+    let start = 1;
 
-  for(let i = 0; i < s.length; i++) {
-    for(let j = i; j < s.length; j++) {
-      stack.push(s[0]);
+    // 일단 다빠지면 정지하는거 넣기 s.length !== 0
+
+    let temp = "";
+    for(let i = 0; i < s.length; i++) {
+      //* "ababcdcdababcdcd"
+      for(let j = i; j < start; j++) {
+        temp += s[j];
+      }
     }
+    console.log("temp: " + temp);
+
+    
+
+    console.log(stack);
+    break;
   }
+
+  console.log("이걸 빠져나오네;");
 
   return answer;
 }
+
+
+solution("ababcdcdababcdcd");
