@@ -10,34 +10,49 @@ function solution(s) {
   //8개 "2ababcdcd" => length: 9
 
   // 무조건 스택아님?
+  let count = 0;
+  // let start = 1;
+  let max = 0;
+  let stack = [];
+  // let result = [];
 
-  
-  while(true) {
-    let count = 0;
-    let stack = [];
-    let start = 1;
-
+  // for(let i = 0; i < s.length; i++) {
     // 일단 다빠지면 정지하는거 넣기 s.length !== 0
-
     let temp = "";
-    for(let i = 0; i < s.length; i++) {
-      //* "ababcdcdababcdcd"
-      for(let j = i; j < start; j++) {
-        temp += s[j];
+    //* "ababcdcdababcdcd"
+    //* "aabbaccc" => 2a | 2b | a3c = 7
+    for(let j = 0; j < s.length; j++) {
+      // temp = s.substring(j, (j + i) * 2);
+      temp = s.substring(j + 1, j); 
+      // console.log(temp);
+      if(stack[stack.length - 1] !== temp && temp !== undefined) {
+        stack.push(temp);
+      } else if(stack[stack.length - 1] === temp){
+        count++;
       }
+      temp = "";
     }
-    console.log("temp: " + temp);
 
+    // if(max < count) {
+      // max = count;
+    // } 
+    console.log(count);
+    if(stack.length + count > max)  {
+      max = stack.length + count;
+    }
     
+    count = 0;
+    stack = [];
 
-    console.log(stack);
-    break;
-  }
+    console.log(max);
 
-  console.log("이걸 빠져나오네;");
-
-  return answer;
+    return max;
+  // }
 }
 
 
-solution("ababcdcdababcdcd");
+// solution("ababcdcdababcdcd");
+solution("aabbacccc"); // 7
+//2a2ba4c => 7; 
+// solution("abac"); // 7
+// solution("2a2ba3c"); // 7
