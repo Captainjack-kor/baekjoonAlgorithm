@@ -13,12 +13,14 @@ function solution(s) {
   let min = s.length;
   let stack = [];
   let result = [];
+  let real_final_result = 0;
 
   for(let i = 1; i <= s.length; i++) {
     // 일단 다빠지면 정지하는거 넣기 s.length !== 0
-
     let count = 0;
     let temp = "";
+
+    // let check_switch = false;
     //* "ababcdcdababcdcd"
     //* "aabbacccc" => 2a | 2b | a | 4c = 7
     // for(let j = 0; j < Math.floor(s.length / i); j++) {
@@ -33,31 +35,72 @@ function solution(s) {
         result.push(count);
         count = 0;
       } else if(stack[stack.length - 1] === temp){
-      // } else {
-        // console.log(stack[stack.length - 1]); //5 => a, b, c, c, c
-        // count -= temp.length;
         console.log(temp);
+        // check_switch = true;
         count++;
-        console.log(count);
       } 
+      // else {
+      //   result.push(count);
+      // }
       temp = "";
     }
     console.log("Stack: " + stack);
     console.log("Count: " + count)
 
+    // if(count > 2) {
+      result.push(count);
+    // }
+
+
+    for(let i = 0; i < stack.length; i++) {
+      real_final_result += stack[i].length;
+    }
+
     count = 0;
     stack = [];
+    while(result.length > 0) {
+      let temp = result.pop();
+      if(temp !== 0) {
+        real_final_result++;
+      }
+      if(String(temp + 1).length > 1) {
+        real_final_result++;
+      }
+    }
+
+    console.log("real_final_result: " + real_final_result);
 
     console.log(result);
+    result = [];
+
+    // if(min > real_final_result + i) {
+    //   min = real_final_result + i;
+    // }
+
+    if(min > real_final_result) {
+      min = real_final_result;
+    }
+
+    console.log(i);
+
+    real_final_result = 0;
 
     // return min;
   }
+  console.log("최종 결과 값: " + min);
 }
 
+// ! Test
+// solution("baaabbc");  // 6
+// solution("aabbacccca"); // 7
+
+// solution("aabbacccca"); // 7
 
 // solution("ababcdcdababcdcd"); // 9
-// solution("ababcdcdababc         dcd"); // 9
+// solution("ababcdcdababcdcd"); // 9
+
 solution("aabbacccc"); // 7
+
 // solution("abcabcabcabcdededededede"); // 14
 //2a2ba4c => 7; 
 // solution("abac"); // 7
