@@ -88,6 +88,7 @@ function solution(s) {
     // return min;
   }
   console.log("최종 결과 값: " + min);
+  // return min;
 }
 
 // ! Test
