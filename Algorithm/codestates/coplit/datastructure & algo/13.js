@@ -1,13 +1,23 @@
 function connectedVertices(edges) {
 
+  /*
+  *연결된 정점들
+
+  *방향이 없는 간선들의 목록이 주어질 때, 연결된 정점의 컴포넌트(그룹들)가 몇 개인지 반환하는 함수를 작성하세요.
+  */
+
 	// 최대 버텍스를 찾습니다.
 	const maxVertex = edges.reduce((a, c) => {
-		const bigger = Math.max(...c);
-		if (bigger > a) return bigger;
+		const bigger = Math.max(...c); // [0, 1] , [2, 3], [4, 5] 값을 풀고 큰 숫자를 넣어 줌
+		if (bigger > a) {
+      return bigger;
+    }
 		return a;
 	}, 0);
 
-	// 이 레퍼런스는 인접 리스트로 만듭니다. (행렬도 가능합니다. 행렬로 작성해 보세요.)
+  console.log(maxVertex); // ex) 5 
+
+	// 이 레퍼런스는 인접 리스트로 만듭니다. (행렬도 가능합니다. 행렬로 작성해 보세요.) //TODO: 죽기전에 가능하면 해볼 것 ^^ 
 	const adjList = {};
 
   // 인접 리스트에 최대 버텍스 크기만큼 반복해 버텍스를 만들어 줍니다.
@@ -15,12 +25,17 @@ function connectedVertices(edges) {
 		adjList[i] = [];
 	}
 
+  console.log(adjList);
+
   // edges를 순회하며, (무향 그래프이므로 쌍방으로) 간선을 연결해 줍니다.
 	// 이렇게 adjList 그래프가 완성되었습니다.
 	for (let i = 0; i < edges.length; i++) {
 		adjList[edges[i][0]].push(edges[i][1]);
 		adjList[edges[i][1]].push(edges[i][0]);
+    // 서로 교차해서 넣는다.
 	}
+
+  console.log(adjList);
 
   // 방문한 버텍스를 담을 객체를 선언합니다.
 	const visited = {};
@@ -42,6 +57,8 @@ function connectedVertices(edges) {
 		}
 	}
 
+  console.log(visited);
+
   // 카운트를 반환합니다.
 	return count;
 }
@@ -53,6 +70,8 @@ function bfs(adjList, vertex, visited) {
 	// bfs는 가장 가까운 정점부터 탐색하기 때문에 queue를 사용합니다.
 	// queue에 vertex를 담습니다.
 	const queue = [vertex];
+  // console.log("queue: " + queue);
+
 	// 해당 버텍스를 방문했기 때문에 visited에 담아 주고, 방문했다는 표시인 true를 할당합니다.
 	visited[vertex] = true;
 
@@ -61,7 +80,9 @@ function bfs(adjList, vertex, visited) {
 
 		// cur 변수에 정점을 할당합니다.
 		// queue는 선입선출이기 때문에 shift 메소드를 사용하여 버텍스를 가져옵니다.
+    console.log("queue: " + queue);
 		const cur = queue.shift();
+
 
 		// 그래프의 cur 정점에 있는 간선들을 전부 순회합니다.
 		for (let i = 0; i < adjList[cur].length; i++) {
@@ -76,6 +97,7 @@ function bfs(adjList, vertex, visited) {
 			// queue에 다음으로 방문할 버텍스가 있기 때문에 while은 멈추지 않습니다.
 			// 만약, queue가 비어 있다면 더 이상 갈 곳이 없는 것이기 때문에 bfs 함수를 종료하고 카운트를 셉니다.
 		}
+    
 	}
 }
 
@@ -97,3 +119,25 @@ function dfs(adjList, vertex, visited) {
 		// 재귀가 종료되면(한 정점에서 이어진 모든 간선들을 확인했다면) dfs 함수를 종료하고 카운트를 셉니다. 
 	}
 }
+
+
+// const result = connectedVertices([
+// 	[0, 1],
+// 	[2, 3],
+// 	[4, 5],
+// ]);
+// console.log(result); // 3
+
+
+// const result = connectedVertices([
+// 	[0, 1],
+// 	[2, 3],
+// 	[3, 4],
+// 	[3, 5],
+// ]);
+// console.log(result); // 2
+
+const result = connectedVertices([
+  [1,2,1],[2,3,3],[5,2,2],[1,4,2],[5,3,1],[5,4,2]
+]);
+console.log(result); // 2
