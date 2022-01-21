@@ -1,0 +1,22 @@
+{
+  "name": "baekjoonalgorithm",
+  "version": "1.0.0",
+  "description": "study algo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Captainjack-kor/baekjoonAlgorithm.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Captainjack-kor/baekjoonAlgorithm/issues"
+  },
+  "homepage": "https://github.com/Captainjack-kor/baekjoonAlgorithm#readme",
+  "devDependencies": {
+    "eslint": "^8.7.0"
+  }
+}
