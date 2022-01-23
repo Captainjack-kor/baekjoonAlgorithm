@@ -1,7 +1,5 @@
 function solution(id_list, report, k) {
   var answer = [];
-  //k만큼
-
   // console.log(id_list);
   // id_list.forEach((el) => {
   //   console.log(el);
@@ -45,14 +43,20 @@ function solution(id_list, report, k) {
     userObj[stack.pop().split(' ')[1]]++; 
   }
 
-  for(let i = 0; i < id_list.length; i++) {
+  const initResultLength = reportList.length;
+  for(let i = 0; i < initResultLength; i++) {
     // console.log(userObj[id_list[i]]);
-    if(userObj[id_list[i]] >= 2) {
+    // reportList.pop().split(' ')[0];
+    // if(userObj[id_list[i]] >= 2) {
+    // let reportUser = reportList.pop().split(' ')[0];
+    // let reportedUser =  reportList.pop().split(' ')[1];
+    // if(userObj[reportUser] >= 2) {
+    if(userObj[reportList[i].split(' ')[1]] >= 2) {
       // userObj[stack.pop().split(' ')[0]] ==> frodo
-      for(let j = 0; j < reportList.length; j++) {
+      // for(let j = 0; j < initResultLength; j++) {
         // console.log(reportList[j]);
-        resultArr[id_list.indexOf(reportList[j].split(' ')[0])]++;
-      }
+        resultArr[id_list.indexOf(reportList[i].split(' ')[0])]++;
+      // }
 
     }
   }
@@ -67,6 +71,6 @@ function solution(id_list, report, k) {
 
 
 solution(["muzi", "frodo", "apeach", "neo"], 
-["muzi frodo","apeach frodo","frodo neo","muzi neo","apeach muzi"], 2);
+["muzi frodo","apeach frodo","frodo neo","muzi neo","apeach muzi"], 2); // [2,1,1,0]
 
-solution(["con", "ryan"], ["ryan con", "ryan con", "ryan con", "ryan con"], 3);
+solution(["con", "ryan"], ["ryan con", "ryan con", "ryan con", "ryan con"], 3); // [0,0]
