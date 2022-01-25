@@ -1,7 +1,7 @@
 // https://m.blog.naver.com/ndb796/221234424646
 
 function getSmallIndex() {
-  let min = INF;
+  // let min = INF;
   let index = 0;
   // for(let i = 0; i < N; i++) {
   // }
