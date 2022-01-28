@@ -163,10 +163,11 @@ solution("ABAAAAAAAAABB") // 7
 // solution("ABAAAAAAAABBB") // 9
 // solution("ABAAAAAAABBBB") // 11
 solution("ABAAB") // 5
-
 solution("ABAAAAAAABA"); // 6
 solution("AAB"); // 2
 solution("AABAAAAAAABBB"); //15 //! 12
 solution("ZZZ"); // 5
 solution("BBBBAAAAAB"); //13 //! 10
-solution("BBBBAAAABA") //13 //! 12
+solution("BBBBAAAABA"); //13 //! 12
+solution("AAAAAAAA"); // 0
+solution("ABBBBAAAAABAAA"); // 15
