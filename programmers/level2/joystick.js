@@ -171,3 +171,4 @@ solution("BBBBAAAAAB"); //13 //! 10
 solution("BBBBAAAABA"); //13 //! 12
 solution("AAAAAAAA"); // 0
 solution("ABBBBAAAAABAAA"); // 15
+solution("ABAABAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAABABA"); // 23
