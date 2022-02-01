@@ -19,6 +19,50 @@
 
 //! 최종 나의 결론은 순열로 돌리는데 문자열 'A'가 연속된 갯수 카운트해서
 //! 그 이하 나오는 배열들은 다 자르면 빅오가 해결 될 것 같다.......
+function permutation(k, arr) {
+  // K가 총 A의 갯수
+  const { length } = arr
+  let isVisit = new Array(length).fill(false);
+  let result = [];
+  const aux = (visit, arr = []) => {
+      if(arr.length === length) {
+        
+        return result.push(arr);
+      }
+      for(let i = 0; i < length; i++){
+          if(!visit[i]){
+              visit[i] = true;
+              aux(visit, arr.concat(i))
+              visit[i] = false;
+          }
+      }
+  }
+  aux(isVisit)
+  console.log(result)
+}
+
+function get_A_num(arr) {
+  let count_A = 0;
+  let max = [];
+  for(let i = 0; i < arr.length; i++) {
+    // let A_length = 'A'.repeat(i);
+    // console.log(A_length);
+    // if(arr.indexOf(A_length) !== -1) {
+    //   max = A_length.length; 
+    // }
+    // for(let j = 0; j < arr.length; j++) {
+      
+    // }
+    if(arr[i] === 'A' && arr[i + 1] === 'A') {
+      count_A++;
+    }
+
+    max.push(count_A);
+    // } 
+  }
+
+  return max;
+}
 
 function solution(name) {
   let strArr = ["A","B","C","D","E","F","G", "H", 
@@ -34,16 +78,13 @@ function solution(name) {
   let back_switch = false;
   let test = false;
   let testCount = 0;
-  // let result = [];
-  // let test = false;
+  console.log(name);
+  let a_count = get_A_num(name);
+  console.log("a_count: " + a_count);
+  permutation(a_count, name);
 
   while(answer !== name) { //! 최종
   // while(start < 2) { //* TEST
-
-    //일단 문자 다르면 비교 
-    // 그전에 레프트 라이트부터 위치 잡아야 함.
-    // 조합짜야할듯 ? name = ["A","B", "A", "A"];  2의 n승 만큼 돌린다
-    // console.log(numArr);
 
     if(init[start] !== name[start]) {
       let temp_Up = -1;
@@ -86,17 +127,13 @@ function solution(name) {
     //! console.log(init);
     //! console.log(name);
 
-
-    //solution("ABAAAAAAAAABB") // 7
     var A_count = 0;
     var prev_str_length = 0;
-    // console.log("너 누구야~ who are you~: " +  name[start]);
     if(name[start] === 'A' && !back_switch && start !== 0) {
       A_count++;
       for(let i = 1; i <= name.length; i++) {
         // console.log(name[start + i]);
         if(name[start + i] !== undefined && name[start + i] === 'A') { 
-          // console.log("오냐")
           A_count++;
           prev_str_length = name.slice(0, start).length;
         }
@@ -110,24 +147,19 @@ function solution(name) {
     // 0부터 start까지 자른 길이보다 크다면?
     // console.log("prev_Value: " +  prev_str_length);
     if(back_switch) {
-      // console.log("뒤로 가니?");
-      // console.log("아니 이걸 못 옴?")
       testCount++;
       start--;
       count++;
     } 
     else {
-      // console.log("킹받네: " + A_count);
       // console.log(prev_str_length);
       // console.log("prev_Value: " +  prev_str_length);
       if(A_count > prev_str_length) {
-        // console.log("한번");
         back_switch = true;
         start = end_point; //* TEST
         count += prev_str_length; //* TEST
         // count--;
       } else {
-        // console.log("실행안되면 망한거");
         start++;
         count++;  
       }
@@ -160,18 +192,20 @@ function solution(name) {
 }
 
 solution("JAZ"); // 11
-solution("JEROEN"); // 56 
-solution("JAN"); // 23
-solution("ABAAAAAAAAABB") // 7
+// solution("JEROEN"); // 56 
+solution("AA");
+solution("AAA");
+// solution("JAN"); // 23
+// solution("ABAAAAAAAAABB") // 7
 // solution("ABAAAAAAAABBB") // 9
 // solution("ABAAAAAAABBBB") // 11
-solution("ABAAB") // 5
-solution("ABAAAAAAABA"); // 6
-solution("AAB"); // 2
-solution("AABAAAAAAABBB"); //15 //! 12
-solution("ZZZ"); // 5
-solution("BBBBAAAAAB"); //13 //! 10
-solution("BBBBAAAABA"); //13 //! 12
-solution("AAAAAAAA"); // 0
-solution("ABBBBAAAAABAAA"); // 15
-solution("ABAABAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAABABA"); // 23
+// solution("ABAAB") // 5
+// solution("ABAAAAAAABA"); // 6
+// solution("AAB"); // 2
+// solution("AABAAAAAAABBB"); //15 //! 12
+// solution("ZZZ"); // 5
+// solution("BBBBAAAAAB"); //13 //! 10
+// solution("BBBBAAAABA"); //13 //! 12
+// solution("AAAAAAAA"); // 0
+// solution("ABBBBAAAAABAAA"); // 15
+// solution("ABAABAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAABABA"); // 23
