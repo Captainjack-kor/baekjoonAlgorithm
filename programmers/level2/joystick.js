@@ -26,8 +26,10 @@ function permutation(k, arr) {
   let result = [];
   const aux = (visit, arr = []) => {
       if(arr.length === length) {
-        
-        return result.push(arr);
+        let value = get_A_num(result);
+        if(value <= k) {
+          return result.push(arr);
+        }
       }
       for(let i = 0; i < length; i++){
           if(!visit[i]){
@@ -45,23 +47,13 @@ function get_A_num(arr) {
   let count_A = 0;
   let max = [];
   for(let i = 0; i < arr.length; i++) {
-    // let A_length = 'A'.repeat(i);
-    // console.log(A_length);
-    // if(arr.indexOf(A_length) !== -1) {
-    //   max = A_length.length; 
-    // }
-    // for(let j = 0; j < arr.length; j++) {
-      
-    // }
     if(arr[i] === 'A' && arr[i + 1] === 'A') {
       count_A++;
     }
-
-    max.push(count_A);
-    // } 
+    // max.push(count_A);
   }
 
-  return max;
+  return count_A;
 }
 
 function solution(name) {
@@ -192,9 +184,9 @@ function solution(name) {
 }
 
 solution("JAZ"); // 11
-// solution("JEROEN"); // 56 
-solution("AA");
-solution("AAA");
+solution("JEROEN"); // 56 
+// solution("AA");
+// solution("AAA");
 // solution("JAN"); // 23
 // solution("ABAAAAAAAAABB") // 7
 // solution("ABAAAAAAAABBB") // 9
