@@ -27,7 +27,13 @@ function permutation(k, arr) {
   const aux = (visit, arr = []) => {
       if(arr.length === length) {
         let value = get_A_num(result);
-        if(value <= k) {
+        let temp = 0;
+        for(let i of arr) {
+          if(i === 'A') {
+            temp++;
+          }
+        }
+        if(temp <= k) {
           return result.push(arr);
         }
       }

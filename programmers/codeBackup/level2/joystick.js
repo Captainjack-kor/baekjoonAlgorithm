@@ -1,3 +1,8 @@
+
+let permutation = () => {
+
+};  
+
 function solution(name) {
   let strArr = ["A","B","C","D","E","F","G", "H", 
   "I", "J", "K", "L", "M", "N", "O", "P", "Q", 
@@ -11,13 +16,13 @@ function solution(name) {
   // 조이스틱 move를 최소화 해야 하는게 관건인데 
 
   // Z가 가장 크고 A가 가장 작다고 가정하면?
-
-  //와 미친 그냥 하나하나 판단하면 되는거아님? 혹시 나 천재일지도 ㅁㅊ;;;;
-  //하나하나가 그리디로 찾는거임 와 개소름 ㅁㅊ 님 그냥 구글입사 ㄱ;
-
+  console.log(init);
+  permutation();
   let start = 0;
   while(answer !== name) { //! 최종
   // while(start < 2) { //* TEST
+
+
 
     //일단 문자 다르면 비교
     if(init[start] !== name[start]) {
