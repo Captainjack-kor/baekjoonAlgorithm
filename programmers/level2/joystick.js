@@ -38,6 +38,7 @@ function permutation(k, arr) {
           return result.push(arr);
         }
       }
+      
       for(let i = 0; i < length; i++){
           if(!visit[i]){
               visit[i] = true;
