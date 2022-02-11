@@ -1,3 +1,5 @@
+// 주말에 볼 수 있기를 제발 
+
 //permutation with visit
 
 function solution(k, dungeons) {
@@ -8,7 +10,7 @@ function solution(k, dungeons) {
         if(arr.length === length) {
             return result.push(arr);
         }
-        
+
         for(let i = 0; i < length; i++){
             if(!visit[i]){
                 visit[i] = true;
