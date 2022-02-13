@@ -37,6 +37,7 @@ function solution(a, b) {
 
   if(a === 3) {
     // b % 7 === 1
+    b % 7 === 2?
   }
   return dayArr[result];
 }
