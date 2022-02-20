@@ -5,8 +5,11 @@ function solution(dartResult) {
   for(let i = 0; i < dartResult.length; i++) {
     // console.log(typeof(dartResult[i]))
     if((Number(dartResult[i])) <= 10) {
+      point = 0;
       point = Number(dartResult[i]);
-    } else if(dartResult[i] === 'S') {
+    } 
+    
+    if(dartResult[i] === 'S') {
       point = Math.pow(point, 1);
     } else if(dartResult[i] === 'D') {
       point = Math.pow(point, 2);
@@ -17,8 +20,8 @@ function solution(dartResult) {
     } else if(dartResult[i] === '#') {
       point = -point;
     }
-    answer = point;
-    point = 0;
+    answer += point;
+    console.log(answer)
   }
 
   console.log(answer)
@@ -26,6 +29,5 @@ function solution(dartResult) {
 }
 
 // console.log(Math.pow(3,2));
-
-solution("1S2D*3T"); // 37 [11 * 2 + 22 * 2 + 33]
-solution("1D2S#10S"); // 9 [12 + 21 * (-1) + 101]
+solution("1S2D*3T"); // 37 [1^1 * 2 + 2^2 * 2 + 3^3]
+// solution("1D2S#10S"); // 9 [1^2 + 2^1 * (-1) + 10^1]
