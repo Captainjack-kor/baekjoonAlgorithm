@@ -18,7 +18,7 @@ rl.on('line', function (line) {
   arr.push(Number(line));
 
 }).on('close', function () {
-  console.log(input);
+  // console.log(input);
   /*
   거스름돈의 액수가 주어지면 리암이 줘야할 
   *쿼터(Quarter, $0.25)의 개수, 
@@ -69,7 +69,7 @@ rl.on('line', function (line) {
     while(input[i] >= 0) {
       if(input[i] - 1 >= 0) {
           input[i] -= 1;
-          console.log(input[i])
+          // console.log(input[i])
           penny++;
       } 
       else {
