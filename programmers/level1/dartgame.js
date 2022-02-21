@@ -30,7 +30,11 @@ function solution(dartResult) {
       answer += point;
       pointArr.push(point);
       tempStar = point;
-      point = 0;
+      if(two_digit_checker) {
+        point = 10;
+      } else {
+        point = 0;
+      }
       // countNum = false;
       // console.log("구라치지마")
       point = Number(dartResult[i]);
@@ -44,7 +48,7 @@ function solution(dartResult) {
 
     if(two_digit_checker) {
       point = 10;
-      two_digit_checker = false;
+      // two_digit_checker = false;
     }
 
     if(dartResult[i] === 'S') {
