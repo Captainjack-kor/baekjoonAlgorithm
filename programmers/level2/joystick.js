@@ -17,6 +17,54 @@
 
 */
 
+//! 최종 나의 결론은 순열로 돌리는데 문자열 'A'가 연속된 갯수 카운트해서
+//! 그 이하 나오는 배열들은 다 자르면 빅오가 해결 될 것 같다.......
+function permutation(k, arr) {
+  // K가 총 A의 갯수
+  const { length } = arr
+  // console.log("arr: " + length);
+  let isVisit = new Array(length).fill(false);
+  let result = [];
+  const aux = (visit, arr = []) => {
+      if(arr.length === length) {
+        let value = get_A_num(result);
+        let temp = 0;
+        for(let i of arr) {
+          if(i === 'A') {
+            temp++;
+          }
+        }
+        if(temp <= k) {
+          return result.push(arr);
+        }
+      }
+      
+      for(let i = 0; i < length; i++){
+          if(!visit[i]){
+              visit[i] = true;
+              aux(visit, arr.concat(i));
+              // aux(visit, arr.concat(i))
+              visit[i] = false;
+          }
+      }
+  }
+  aux(isVisit)
+  console.log(result)
+}
+
+function get_A_num(arr) {
+  let count_A = 0;
+  let max = [];
+  for(let i = 0; i < arr.length; i++) {
+    if(arr[i] === 'A' && arr[i + 1] === 'A') {
+      count_A++;
+    }
+    // max.push(count_A);
+  }
+
+  return count_A;
+}
+
 function solution(name) {
   let strArr = ["A","B","C","D","E","F","G", "H", 
   "I", "J", "K", "L", "M", "N", "O", "P", "Q", 
@@ -27,113 +75,138 @@ function solution(name) {
   // let init = "A".repeat(name.length);
   // console.log(init);
   let start = 0;
+  let end_point = name.length - 1;
+  let back_switch = false;
+  let test = false;
+  let testCount = 0;
+  console.log(name);
+  let a_count = get_A_num(name);
+  console.log("a_count: " + a_count);
+  permutation(a_count, name);
 
-  // let result = [];
-  let str_Split = name.split('');
+  while(answer !== name) { //! 최종
+  // while(start < 2) { //* TEST
 
-  const getPermutations = function (arr, selectNumber) {
-    const results = [];
-    if (selectNumber === 1) return arr.map((el) => [el]); 
-    arr.forEach((fixed, index, origin) => {
-      const rest = [...origin.slice(0, index), ...origin.slice(index + 1)];
-      const permutations = getPermutations(rest, selectNumber - 1); 
-      const attached = permutations.map((el) => [fixed, ...el]); 
-      results.push(...attached); 
-    });
-  
-    return results; // 결과 담긴 results return
-  }
-  
-  getPermutations(str_Split, str_Split.length);
+    if(init[start] !== name[start]) {
+      let temp_Up = -1;
+      let temp_Down = 0;
+      let temp_str_Up = "";
+      let temp_str_Down = "";
 
-  let new_arr = getPermutations(str_Split, str_Split.length);
-  for(let i = 0; i < new_arr.length; i++) {
-    if(new_arr[new_arr.length - 1][i] !== str_Split[i] || str_Split[i + 1]) {
-      //indexOf 2차이가 안나면 다 뺴버림.
-      new_arr.pop();
-    }
-  }
-  console.log(new_arr);
-
-  let super_real_final_answer = [];
-
-  for(let i = 0; i < new_arr.length; i++) {
-    answer = new_arr[i];
-    while(answer !== name) { //! 최종
-    // while(start < 2) { //* TEST
-
-      //일단 문자 다르면 비교 
-      // 그전에 레프트 라이트부터 위치 잡아야 함.
-      // 조합짜야할듯 ? name = ["A","B", "A", "A"];  2의 n승 만큼 돌린다
-      // console.log(numArr);
-
-      
-      if(init[start] !== name[start]) {
-        let temp_Up = -1;
-        let temp_Down = 0;
-        let temp_str_Up = "";
-        let temp_str_Down = "";
-
-        // UP
-        for(let i = 0; i < strArr.length; i++) {
-          temp_Up++;
-          // console.log(strArr[i]);
-          if(strArr[i] === name[start]) {
-            temp_str_Up = strArr[i];
-            // console.log(init[start]);
-            break;
-          }
+      // UP
+      for(let i = 0; i < strArr.length; i++) {
+        temp_Up++;
+        // console.log(strArr[i]);
+        if(strArr[i] === name[start]) {
+          temp_str_Up = strArr[i];
+          // console.log(init[start]);
+          break;
         }
-
-        //DOWN 
-        for(let i = strArr.length - 1; i > 0; i--) {
-          temp_Down++;
-          // console.log(strArr[i])
-          if(strArr[i] === name[start]) {
-            temp_str_Down = strArr[i];
-            break;
-          }
-        }
-
-        if(temp_Up > temp_Down) {
-          count += temp_Down;
-          init[start] = temp_str_Down;
-        } else {
-          count += temp_Up;
-          init[start] = temp_str_Up;
-        }
-        // console.log("UP: " + temp_Up);
-        // console.log("Down: " + temp_Down);
       }
-      let super_min = Math.min(...super_real_final_answer);
-      if(super_min < count) {
-        break;
+
+      //DOWN 
+      for(let i = strArr.length - 1; i > 0; i--) {
+        temp_Down++;
+        // console.log(strArr[i])
+        if(strArr[i] === name[start]) {
+          temp_str_Down = strArr[i];
+          break;
+        }
       }
-      start++; //* TEST
-      count++; //* TEST
-
-      var answer = "";
-      for(let i of init) {
-        answer += i;
-      } 
-
-
-      // console.log("answer: " + answer);
+      if(temp_Up > temp_Down) {
+        count += temp_Down;
+        init[start] = temp_str_Down;
+      } else {
+        count += temp_Up;
+        init[start] = temp_str_Up;
+      }
+      // console.log("UP: " + temp_Up);
+      // console.log("Down: " + temp_Down);
     }
-    // --count;
-    super_real_final_answer.push(count);
-  }
 
-  let min = Math.min(...super_real_final_answer);
-  min--;
+
+    //! console.log(init);
+    //! console.log(name);
+
+    var A_count = 0;
+    var prev_str_length = 0;
+    if(name[start] === 'A' && !back_switch && start !== 0) {
+      A_count++;
+      for(let i = 1; i <= name.length; i++) {
+        // console.log(name[start + i]);
+        if(name[start + i] !== undefined && name[start + i] === 'A') { 
+          A_count++;
+          prev_str_length = name.slice(0, start).length;
+        }
+        // if(A_count === 0) {
+        //   A_count = 0;
+        // }
+      }
+      // console.log(prev_str_length);
+    }
+    // console.log(A_count);
+    // 0부터 start까지 자른 길이보다 크다면?
+    // console.log("prev_Value: " +  prev_str_length);
+    if(back_switch) {
+      testCount++;
+      start--;
+      count++;
+    } 
+    else {
+      // console.log(prev_str_length);
+      // console.log("prev_Value: " +  prev_str_length);
+      if(A_count > prev_str_length) {
+        back_switch = true;
+        start = end_point; //* TEST
+        count += prev_str_length; //* TEST
+        // count--;
+      } else {
+        start++;
+        count++;  
+      }
+    }
+
+    var answer = "";
+    for(let i of init) {
+      answer += i;
+    } 
+
+    // console.log(answer);
+    
+  }
+  // let min = Math.min(...super_real_final_answer);
+  // min--;
   // console.log(super_real_final_answer);
+  if(testCount > 1) {
+    test = true;
+  }
+  // console.log(test);
+  
+  if(test === true) {
+    // console.log("엥?")
+    count--;
+  }
+  // console.log(min);
   // console.log(--count);
-  console.log(min);
-  return min;
+  console.log(--count);
+  return --count;
 }
 
 solution("JAZ"); // 11
-solution("JEROEN"); // 56 
-solution("JAN"); // 23
+// solution("JEROEN"); // 56 
+// solution("AA");
+// solution("AAA");
+// solution("JAN"); // 23
 // solution("ABAAAAAAAAABB") // 7
-// solution("ABAAAABB") // 7
+// solution("ABAAAAAAAABBB") // 9
+// solution("ABAAAAAAABBBB") // 11
+// solution("ABAAB") // 5
+// solution("ABAAAAAAABA"); // 6
+// solution("AAB"); // 2
+// solution("AABAAAAAAABBB"); //15 //! 12
+// solution("ZZZ"); // 5
+// solution("BBBBAAAAAB"); //13 //! 10
+// solution("BBBBAAAABA"); //13 //! 12
+// solution("AAAAAAAA"); // 0
+// solution("ABBBBAAAAABAAA"); // 15
+// solution("ABAABAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAABABA"); // 23

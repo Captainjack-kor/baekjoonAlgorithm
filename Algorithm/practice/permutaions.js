@@ -22,3 +22,4 @@ const getPermutations = function (arr, selectNumber) {
 
 // console.log(getPermutations([1, 2, 3, 4], 3));
 console.log(getPermutations([1, 2, 3], 3));
+// console.log(getPermutations(["A", "B", "C"], 3));
