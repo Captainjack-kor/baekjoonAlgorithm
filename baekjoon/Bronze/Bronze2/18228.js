@@ -14,7 +14,7 @@ rl.on('line', function (line) {
 }).on('close', function () {
   // console.log(input);
   let arr = input[1].split(' ');
-  console.log(arr);
+  // console.log(arr);
   // 펭귄 서있는 곳 위치 좌, 우 하나씩 가면서 최솟 값 찾기
 
   let min_left =  1000000000;
@@ -34,7 +34,7 @@ rl.on('line', function (line) {
     if(min_right > Number(arr[i])) {
       min_right = Number(arr[i]);
     }
-    console.log(min_right);
+    // console.log(min_right);
  }
 
   console.log(min_left + min_right);
