@@ -18,8 +18,8 @@ rl.on('line', function (line) {
   let count = 0;
   let maxCount = 0;
   for(let i = 0; i < arr.length; i++) {
-    for(let j = i; j < arr.length; j++) {
-      if(Number(arr[i]) <= Number(arr[j])) {
+    for(let j = i + 1; j < arr.length; j++) {
+      if(Number(arr[i]) >= Number(arr[j])) {
         count++;
       } else {
         break;
@@ -29,7 +29,6 @@ rl.on('line', function (line) {
     if(count > maxCount) {
       maxCount = count;
     } 
-    
     count = 0;
   }
   console.log(maxCount);
