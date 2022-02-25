@@ -20,24 +20,22 @@ rl.on('line', function (line) {
     new_arr.push(Number(arr[i]));
   }
 
-  console.log(new_arr);
-  let min = 100000;
-  let temp = 0;
-  for(let i = 0; i < new_arr.length; i++) { 
-    if(new_arr[i] && new_arr[i + 1]) {
-      if(new_arr[i + 1] - new_arr[i] < 0) {
-        temp = new_arr[i] - new_arr[i + 1]
-      } else {
-        temp = new_arr[i + 1] - new_arr[i];
-      }
-      console.log(temp);
-      if(min > temp) {
+  let min = Math.abs(new_arr[1] - new_arr[0]);
+  let temp = Math.abs(new_arr[1] - new_arr[0]);
+  for(let i = 0; i < new_arr.length - 1; i++) { 
+    // if(new_arr[i + 1] - new_arr[i] >= 0) {
+      temp = Math.abs(new_arr[i + 1] - new_arr[i]);
+
+      if(min >= temp) {
         min = temp;
       } 
-      temp = 0;
-    } else {
-      break;
-    }
+    // } 
+
+    // console.log(temp);
+    // if(min >= temp) {
+    //   min = temp;
+    // } 
+    // temp = 0;
   }
 
   console.log(min);
