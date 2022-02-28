@@ -21,10 +21,7 @@ rl.on('line', function (line) {
     return num * factorial(num - 1);
   }
   
-  if(input === 0) {
-    console.log(1);
-  } else {
-    console.log(factorial(input));
-  }
+  console.log(factorial(input));
+  
   process.exit();
 });
