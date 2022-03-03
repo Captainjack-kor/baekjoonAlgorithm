@@ -7,8 +7,8 @@ let round2 = input[2].split(' ').map(v => Number(v));
 
 // 부등호 -가 한개라면 포기해야함 
 
-console.log(round1);
-console.log(round2);
+// console.log(round1);
+// console.log(round2);
 
 let total = round1.reduce((acc, cur) => acc + cur);
 
