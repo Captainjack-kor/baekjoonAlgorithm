@@ -11,7 +11,7 @@ for(let i = 2; i <= Math.sqrt(m); i++) {
   }
 } 
 
-arr.splice(0,2,false,false) 
+arr.splice(0, 2, false, false) 
 for(let i = n; i<=m; i++){ 
   if(arr[i]) {
     console.log(arr[i]);
