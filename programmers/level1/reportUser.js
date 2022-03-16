@@ -31,7 +31,7 @@ function solution(id_list, report, k) {
   // console.log(report.length);
 
   let tempArr = [];
-
+  
   const initLength = report.length;
   for(let i = 0; i < initLength; i++) {
     let temp = report.pop();
@@ -44,12 +44,7 @@ function solution(id_list, report, k) {
   console.log(reportList);
 
   while(stack.length > 0) {
-
-    let name_temp = stack.pop().split(' ');
-    if(tempArr.indexOf(name_temp[0] === -1)) {
-      tempArr.push(name_temp[0])
-      userObj[name_temp[1]]++; 
-    }
+    userObj[stack.pop().split(' ')[1]]++; 
   }
 
   const initResultLength = reportList.length;
