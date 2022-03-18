@@ -13,14 +13,16 @@ for(let i = 0; i < input.length; i++) {
   let W = Math.ceil(temp[2] / temp[0]);
   let H = temp[2] % temp[0];
 
-  if(N % H === 0) {
-    W = N / H;
+  // if(N % H === 0) {
+  //   W = N / H;
+  // }
+  if (H === 0) {
+    H = temp[0];
   }
 
   if(W < 10) {
-    W = W + String(0) + W;
+    W = String(0) + W;
   } 
-
   answer.push(`${H}${W}`);
 }
 
