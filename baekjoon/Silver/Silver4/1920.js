@@ -1,5 +1,3 @@
-const { resourceLimits } = require("worker_threads");
-
 const [input, ...arr] = require("fs").readFileSync("/dev/stdin").toString().trim().split("\n");
 // const [input2, ...arr2] = require("fs").readFileSync("/dev/stdin").toString().trim().split("\n");
 
@@ -45,7 +43,3 @@ const result = B.map(v => array.has(v) ? 1 : 0);
 console.log(result.join("\n"));
 
 */
-
-console.time("Loop");
-
-console.time("Loop");
