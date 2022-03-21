@@ -29,12 +29,11 @@ class LinkedList {
       this.head = node;
     } else {
       current = this.head;
-
+    
       while (current.next) { //this.head에 next가 있다면 즉, next가 null이아니라면
         current = current.next; // current는 current.next가 되고
       }
-
-      current.next = node; //결국 current.next가 새로넣은 node가 된다?
+      current.next = node; //결국 마지막 노드 null에 입력한 node 값 적용[current.next가 새로넣은 node가 된다?]
     }
     this.size++; //length 는 1증가
   }
@@ -48,10 +47,9 @@ class LinkedList {
 
     // If first index
     if (index === 0) {
-      this.head = new Node(data, this.head) //즉, index 0에 삽입시 해당 노드를 넣고 다 한칸식 뒤로 미룸
+      this.head = new Node(data, this.head); //즉, index 0에 삽입시 해당 노드를 넣고 다 한칸식 뒤로 미룸
       this.size++
       return;
-
     }
 
     const node = new Node(data);
@@ -130,13 +128,15 @@ class LinkedList {
     }
   }
 }
+
 const linkedList = new LinkedList();
 
 linkedList.insertFirst(100);
 linkedList.insertFirst(200);
 linkedList.insertFirst(300);
-linkedList.insertLast(400);
-linkedList.insertAt(500, 1)
+linkedList.insertFirst(400);
+linkedList.insertLast(500);
+linkedList.insertAt(600, 1)
 
 linkedList.removeAt(2)
 
