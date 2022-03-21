@@ -1,77 +1,50 @@
 function solution(id_list, report, k) {
+  // var answer = Array.from({ length: id_list.length }, () => 0);
   var answer = [];
-  // console.log(id_list);
-  // id_list.forEach((el) => {
-  //   console.log(el);
-  // });
+  // console.log(answer);
+  let setMap = new Map();
+  //* 최대 신고 가능 횟수 k
 
-  let userObj = {};
-  let resultArr = [];
+  id_list.forEach((el) => {
+    setMap.set(el, 0);
+  })
+
+  let checkArr = [];
+  let block_user_list = [];
+  report.forEach((el) => {
+    let [reportUser, reportSomeone] = el.split(' ');
+    if(checkArr.indexOf(el) === -1) {
+      setMap.set(reportSomeone, setMap.get(reportSomeone) + 1);
+      if(setMap.get(reportSomeone) >= k) {
+        block_user_list.push(reportSomeone);
+        
+      } 
+      checkArr.push(el);
+    }
+  })
+
+  // console.log(block_user_list);
+
+
+  let count = 0;
   for(let i = 0; i < id_list.length; i++) {
-    // console.log(id_list[i]);
-    userObj[id_list[i]] = 0;
-    resultArr.push(0);
-  }
-
-  // console.log(resultObj);
-
-  // console.log(userObj);
-  // for(let i = 0; i < id_list.length; i++) {
-  //   // console.log(report[i].split(' '));
-  //   for(let j = 0; j <= 1; j++) {
-  //     console.log("secrets: "+ report[i].split(' ')[j]);
-  //     if(report[i].split(' ')[j].indexOf(id_list[i]) !== -1) {
-  //       // console.log("없음");
-  //       userObj[report[i].split(' ')[j]]++;
-  //     }
-  //   }
-  // }
-
-  let stack = [];
-  // console.log(report.length);
-
-  let tempArr = [];
-  
-  const initLength = report.length;
-  for(let i = 0; i < initLength; i++) {
-    let temp = report.pop();
-    if(stack.indexOf(temp) === -1) {
-      stack.push(temp);
+    for(let j = 0; j < checkArr.length; j++) {
+      let user = report[j].split(' ')[0];
+      let result = report[j].split(' ')[1];
+      // console.log(id_list[i]) 
+      if(user === id_list[i] && block_user_list.indexOf(result) !== -1) {
+        count++;
+      }
     }
+    answer.push(count);
+    count = 0;
   }
+  // console.log(answer);
 
-  let reportList = stack.slice();
-  console.log(reportList);
-
-  while(stack.length > 0) {
-    userObj[stack.pop().split(' ')[1]]++; 
-  }
-
-  const initResultLength = reportList.length;
-  for(let i = 0; i < initResultLength; i++) {
-    // console.log(userObj[id_list[i]]);
-    // reportList.pop().split(' ')[0];
-    // if(userObj[id_list[i]] >= 2) {
-    // let reportUser = reportList.pop().split(' ')[0];
-    // let reportedUser =  reportList.pop().split(' ')[1];
-    // if(userObj[reportUser] >= 2) {
-    if(userObj[reportList[i].split(' ')[1]] >= 2) {
-      // userObj[stack.pop().split(' ')[0]] ==> frodo
-      // for(let j = 0; j < initResultLength; j++) {
-        // console.log(reportList[j]);
-        resultArr[id_list.indexOf(reportList[i].split(' ')[0])]++;
-      // }
-
-    }
-  }
-  // console.log("stack: " + stack);
-
-  console.log(userObj);
-
-  answer = resultArr;
-  console.log(answer);
   return answer;
 }
+
+
 
 
 solution(["muzi", "frodo", "apeach", "neo"], 

@@ -19,7 +19,7 @@ for(let i = 0; i < arr.length; i++) {
   }
 }
 
-console.log(setMap);
+// console.log(setMap);
 
 targetArr.forEach((el) => {
   if(setMap.get(el)) {
@@ -33,4 +33,4 @@ console.log(temp.join(' '));
 
 // console.log(targetArr);
 
-//m_arr.forEach(v => answer.push(myMap.get(v)||0));
+//m_arr.forEach(v => answer.push(myMap.get(v)||0)); //TODO: 미쳤습니까 휴먼?
