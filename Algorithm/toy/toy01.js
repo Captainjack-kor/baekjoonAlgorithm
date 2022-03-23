@@ -41,16 +41,17 @@ console.log(output); // 6
 */
 
 function orderOfPresentation(N, K) {
-  // 조의 개수 N, 발표 순서 K
+  //* 조의 개수 N, 발표 순서 K
 
   // N은 최대 12입니다.
   // 발표 순서를 만드는 것은 순열(permutation)이므로, 발표 순서의 최대 크기는 12!입니다.
-  // 이는 약 4억 8천만에 해당하며, 일반적인 수행 속도 상한(약 1억)을 훨씬 상회하므로 순열을 전부 생성하는 것은 올바른 접근 방법이 아닙니다.
+  // 이는 약 4억 8천만(479,001,600)에 해당하며, *일 반적인 수행 속도 상한(약 1억)을 훨씬 상회하므로 
+  // 순열을 전부 생성하는 것은 올바른 접근 방법이 아닙니다.
 
-  const factorial = (n) => {
-    if (n <= 1) return 1;
-    return n * factorial(n - 1);
-  };
+  // const factorial = (n) => {
+  //   if (n <= 1) return 1;
+  //   return n * factorial(n - 1);
+  // };
 
   // 발표 순서를 담는 변수 생성
   let order = 0;
