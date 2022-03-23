@@ -16,7 +16,7 @@ while (t--) {
   memo.push([...Array(10)]); 
 }
 
-// console.log(memo);
+console.log(memo);
 
 for (let n = 1; n < N; n++) {
   for (let i = 0; i <= 9; i++) {
