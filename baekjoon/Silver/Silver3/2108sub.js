@@ -61,7 +61,12 @@ function getRange(array) {
   return array[array.length - 1] - array[0];
 }
 
-console.log(getAverage(result));
-console.log(getMedian(result));
-console.log(getMostValue(result));
-console.log(getRange(result));
+
+let answer = [];
+answer.push(getAverage(result));
+answer.push(getMedian(result));
+answer.push(getMostValue(result));
+answer.push(getRange(result));
+
+
+console.log(answer.join('\n'));
