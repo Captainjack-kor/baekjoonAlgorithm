@@ -39,11 +39,14 @@ function frequently(arr) {
   return result.length > 1 ? result[1] : result[0];
 }
 
+let answer =[];
 if(average === -0) {
-  console.log(0)
+  answer.push(0);
 } else {
-  console.log(average);
+  answer.push(average);
 }
-console.log(centerValue);
-console.log(frequently_Value);
-console.log(range);
+answer.push(centerValue);
+answer.push(frequently_Value);
+answer.push(range);
+
+console.log(answer.join('\n'));
