@@ -1,6 +1,8 @@
-const input = require("fs").readFileSync("/dev/stdin").toString().trim().split("\n");
-
+// const input = require("fs").readFileSync("/dev/stdin").toString().trim().split("\n");
+const fs = require('fs');
+let input = fs.readFileSync("/dev/stdin").toString().trim().split('');
 // let str = input[0];
+console.log(input);
 
 let setNumber = 0, answer_cnt1 = 0, answer_cnt2 = 0;;
 
