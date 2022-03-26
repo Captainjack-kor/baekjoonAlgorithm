@@ -1,8 +1,12 @@
-let input = require("fs").readFileSync("/dev/stdin").toString().trim().split("\n");
+const input = require("fs").readFileSync("/dev/stdin").toString().trim().split("\n");
 
-let people = input[0];
-let get_rid_of_person = input[1];
-let current = 0;
-let temp = [];
+let [people, kill] = input[0].split(' ').map(v => +v);
 
-// while(people > )
+console.log(people, kill);
+
+let people_list = [];
+
+for(let i = 1; i <= people; i++) {
+  people_list.push(i);
+}
+
