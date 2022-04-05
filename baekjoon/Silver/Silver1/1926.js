@@ -9,15 +9,15 @@ let BFS = (y, x) => {
   while (queue.length !== 0) {
       let [targetY, targetX] = queue.shift();
       for (let i = 0; i < 4; i++) {
-      let positionX = targetX + directionX[i]; 
-      let positionY = targetY + directionY[i]; 
-      if (positionY < N && positionY >= 0 && positionX < M && positionX >= 0) {
-        if (board[positionY][positionX] === 1 && !visited[positionY][positionX]) {
-          visited[positionY][positionX] = true;
-          queue.push([positionY, positionX]);
-          result++;
+        let positionX = targetX + directionX[i]; 
+        let positionY = targetY + directionY[i]; 
+        if (positionY < N && positionY >= 0 && positionX < M && positionX >= 0) {
+          if (board[positionY][positionX] === 1 && !visited[positionY][positionX]) {
+            visited[positionY][positionX] = true;
+            queue.push([positionY, positionX]);
+            result++;
+          }
         }
-      }
     }
   }
   return result;    
@@ -38,7 +38,6 @@ visited = Array.from(Array(N), () => new Array(M).fill(false));
 
 let count = 0;
 let max = 0;
-
 for(let i = 0; i < N; i++) {
   for(let j = 0; j < M; j++) {
     if(board[i][j] === 1 && !visited[i][j]) {
