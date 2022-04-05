@@ -5,10 +5,8 @@ let BFS = (y, x) => {
   // x기준 => 1,0 | 0, 1 | -1 0 | 0 -1 
   let dx = [0, 0, 1, -1];
   let dy = [1, -1, 0, 0];
-  let walk = 1;
   while(queue.length) {
     let [tempY, tempX] = queue.shift();
-    walk++;
     for(let i = 0; i < dx.length; i++) {
       let nx = tempX + dx[i];
       let ny = tempY + dy[i];
@@ -16,12 +14,10 @@ let BFS = (y, x) => {
         if(graph[ny][nx] === 1 && !visited[ny][nx]) {
           visited[ny][nx] = visited[tempY][tempX] + 1;
           queue.push([ny, nx]);
-          // console.log(graph);
         }
       }
     }
   }
-
   return 0;
 }
 
@@ -38,7 +34,7 @@ let visited = Array.from(Array(N), () => Array(M).fill(0));
 for(let i = 0; i < N; i++) {
   for(let j = 0; j < M; j++) {
     if(graph[i][j] === 1 && !visited[i][j]){
-      visited[i][j] = true;
+      visited[i][j] = 1;
       BFS(i, j);
     }
   }
