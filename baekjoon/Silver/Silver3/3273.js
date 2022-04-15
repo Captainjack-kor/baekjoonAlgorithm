@@ -13,8 +13,8 @@ while(start !== end) {
   } else if(list[start] + list[end] > max) {
      end--;
   } else {
-    start++; 
-  }
+    start++;
+  } 
 }
 // for(let i = 0; i < inputL; i++) {
 //   for(let j = i + 1; j < inputL; j++) {
@@ -25,3 +25,4 @@ while(start !== end) {
 // }
 
 console.log(count);
+

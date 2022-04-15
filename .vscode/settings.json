@@ -1,5 +1,9 @@
 {
   "sync.autoDownload": true,
   "sync.autoUpload": true,
-  "sync.forceDownload": true
+  "sync.forceDownload": true,
+  "files.associations": {
+    "vector": "cpp",
+    "ios": "cpp"
+  }
 }

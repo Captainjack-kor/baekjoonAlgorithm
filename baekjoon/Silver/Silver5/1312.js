@@ -1,3 +1,5 @@
+const { listenerCount } = require("process");
+
 const input = require("fs").readFileSync("/dev/stdin").toString().trim();
 
 let [A, B, N] = input.split(' ').map(v => +v);
@@ -10,7 +12,6 @@ while(N--) {
   A *= 10;
   temp = A / B;
 }
-
 
 console.log(Math.floor(temp));
 
