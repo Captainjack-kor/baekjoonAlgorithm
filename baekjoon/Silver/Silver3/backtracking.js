@@ -12,16 +12,17 @@ function dps(k) {
     temp = "";
     return;
   }
-  let st = 1;
-  if(k !== 0) {
-    st = arr[k - 1];
-    // st = arr[k - 1] + 1;
-  }
-  for(let i = st; i <= N; i++) {
+  // let st = 1;
+  // if(k !== 0) {
+  //   st = arr[k - 1];
+  // }
+  for(let i = 1; i <= N; i++) {
     if(!isUsed[i]) {
       arr[k] = i;
+      // console.log("test: " + arr[k]);
       // isUsed[i] = true;
       dps(k + 1);
+      // console.log("value: " + arr[k]);
       // isUsed[i] = false;
     }
   }
