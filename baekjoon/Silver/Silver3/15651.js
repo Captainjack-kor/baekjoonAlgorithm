@@ -13,7 +13,6 @@ function dps(k) {
     
     return;
   }
-  
   for(let i = 1; i <= N; i++) {
     if(!isUsed[i]) {
       arr[k] = i;
