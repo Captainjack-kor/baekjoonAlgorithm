@@ -18,12 +18,8 @@ function dps(k) {
     return;
   } 
 
-  let st = 0; 
-  if(k !== 0) {
-    st = result[k - 1] + 1;
-  }
 
-  for(let i = st; i < N; i++) {
+  for(let i = 0; i < N; i++) {
     if(!isUsed[i]) {
       result[k] = i; // 인덱스를 지정
       // isUsed[i] = true;
