@@ -26,9 +26,9 @@ function dps(k) {
   for(let i = st; i < N; i++) {
     if(!isUsed[i]) {
       result[k] = i; // 인덱스를 지정
-      // isUsed[i] = true;
+      isUsed[i] = true;
       dps(k + 1)
-      // isUsed[i] = false;
+      isUsed[i] = false;
     }
   }
 }
